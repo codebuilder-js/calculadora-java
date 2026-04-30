@@ -17,6 +17,9 @@ public class Main {
             System.out.println("2 - Subtrair");
             System.out.println("3 - Multiplicar");
             System.out.println("4 - Dividir");
+            System.out.println("5 - Potência");
+            System.out.println("6 - Raiz Quadrada");
+            System.out.println("7 - Porcentagem");
             System.out.println("0 - Sair");
 
             System.out.print("Escolha: ");
@@ -35,6 +38,15 @@ public class Main {
                     break;
                 case 4:
                     realizarDivisao();
+                    break;
+                case 5:
+                    realizarPotencia();
+                    break;
+                case 6:
+                    realizarRaizQuadrada();
+                    break;
+                case 7:
+                    realizarPorcentagem();
                     break;
                 case 0:
                     System.out.println("Encerrando...");
@@ -99,6 +111,38 @@ public class Main {
         }
 
         double resultado = a / b;
+
+        System.out.println("Resultado: " + resultado);
+    }
+
+    public static void realizarPotencia() {
+        double base = lerNumero("Base: ");
+        double expoente = lerNumero("Expoente: ");
+
+        double resultado = Math.pow(base, expoente);
+
+        System.out.println("Resultado: " + resultado);
+    }
+
+    public static void realizarRaizQuadrada() {
+        double numero = lerNumero("Número: ");
+
+        if (numero < 0) {
+            System.out.println("Não existe raiz real para número negativo.");
+
+            return;
+        }
+
+        double resultado = Math.sqrt(numero);
+
+        System.out.println("Resultado: " + resultado);
+    }
+
+    public static void realizarPorcentagem() {
+        double valor = lerNumero("Valor: ");
+        double porcentagem = lerNumero("Porcentagem: ");
+
+        double resultado = (valor * porcentagem) / 100;
 
         System.out.println("Resultado: " + resultado);
     }
