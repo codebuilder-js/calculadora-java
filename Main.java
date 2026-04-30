@@ -6,7 +6,20 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
     static List<String> historico = new ArrayList<>();
 
+    static final String USUARIO = "admin";
+    static final String SENHA = "1234";
+
+    static boolean autenticado = false;
+
+    static int totalOperacoes = 0;
+    static final int LIMITE_OPERACOES = 10;
+
     public static void main(String[] args) {
+        autenticar();
+
+        if(!autenticado) {
+            return;
+        }
 
         exibirMenu();
     }
@@ -61,12 +74,12 @@ public class Main {
                 default:
                     System.out.println("Opção inválida.");
             }
-        } while (opcao != 0);
+        } while(opcao != 0);
     }
 
     public static double lerNumero(String mensagem) {
-        while (true) {
-            try {
+        while(true) {
+            try{
                 System.out.print(mensagem);
 
                 return scanner.nextDouble();
@@ -79,6 +92,10 @@ public class Main {
     }
 
     public static void realizarSoma() {
+        if(!verificarLimite()) {
+            return;
+        }
+
         double a = lerNumero("Primeiro número: ");
         double b = lerNumero("Segundo número: ");
 
@@ -88,10 +105,16 @@ public class Main {
 
         historico.add(operacao);
 
+        totalOperacoes++;
+
         System.out.println("Resultado: " + resultado);
     }
 
     public static void realizarSubtracao() {
+        if(!verificarLimite()) {
+            return;
+        }
+
         double a = lerNumero("Primeiro número: ");
         double b = lerNumero("Segundo número: ");
 
@@ -101,10 +124,16 @@ public class Main {
 
         historico.add(operacao);
 
+        totalOperacoes++;
+
         System.out.println("Resultado: " + resultado);
     }
 
     public static void realizarMultiplicacao() {
+        if(!verificarLimite()) {
+            return;
+        }
+
         double a = lerNumero("Primeiro número: ");
         double b = lerNumero("Segundo número: ");
 
@@ -114,14 +143,20 @@ public class Main {
 
         historico.add(operacao);
 
+        totalOperacoes++;
+
         System.out.println("Resultado: " + resultado);
     }
 
     public static void realizarDivisao() {
+        if(!verificarLimite()) {
+            return;
+        }
+
         double a = lerNumero("Primeiro número: ");
         double b = lerNumero("Segundo número: ");
 
-        if (b == 0) {
+        if(b == 0) {
             System.out.println("Não é possível dividir por zero.");
 
             return;
@@ -133,10 +168,16 @@ public class Main {
 
         historico.add(operacao);
 
+        totalOperacoes++;
+
         System.out.println("Resultado: " + resultado);
     }
 
     public static void realizarPotencia() {
+        if(!verificarLimite()) {
+            return;
+        }
+
         double base = lerNumero("Base: ");
         double expoente = lerNumero("Expoente: ");
 
@@ -146,10 +187,16 @@ public class Main {
 
         historico.add(operacao);
 
+        totalOperacoes++;
+
         System.out.println("Resultado: " + resultado);
     }
 
     public static void realizarRaizQuadrada() {
+        if(!verificarLimite()) {
+            return;
+        }
+
         double numero = lerNumero("Número: ");
 
         if (numero < 0) {
@@ -164,10 +211,16 @@ public class Main {
 
         historico.add(operacao);
 
+        totalOperacoes++;
+
         System.out.println("Resultado: " + resultado);
     }
 
     public static void realizarPorcentagem() {
+        if(!verificarLimite()) {
+            return;
+        }
+
         double valor = lerNumero("Valor: ");
         double porcentagem = lerNumero("Porcentagem: ");
 
@@ -176,6 +229,8 @@ public class Main {
         String operacao = porcentagem + "% de " + valor + " = " + resultado;
 
         historico.add(operacao);
+
+        totalOperacoes++;
 
         System.out.println("Resultado: " + resultado);
     }
@@ -192,5 +247,33 @@ public class Main {
         for(String operacao : historico) {
             System.out.println(operacao);
         }
+    }
+
+    public static void autenticar() {
+        System.out.println("=== LOGIN ===");
+
+        System.out.print("Usuário: ");
+        String usuario = scanner.next();
+
+        System.out.print("Senha: ");
+        String senha = scanner.next();
+
+        if(usuario.equals(USUARIO) && senha.equals(SENHA)) {
+            autenticado = true;
+
+            System.out.println("Login realizado.");
+        } else {
+            System.out.println("Credenciais inválidas.");
+        }
+    }
+
+    public static boolean verificarLimite() {
+        if(totalOperacoes >= LIMITE_OPERACOES) {
+            System.out.println("Limite de operações atingido.");
+
+            System.exit(0);
+        }
+
+        return true;
     }
 }
