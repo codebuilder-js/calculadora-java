@@ -46,9 +46,18 @@ public class Main {
     }
 
     public static double lerNumero(String mensagem) {
-        System.out.print(mensagem);
+        while (true) {
 
-        return scanner.nextDouble();
+            try {
+                System.out.print(mensagem);
+
+                return scanner.nextDouble();
+            } catch (Exception e) {
+                System.out.println("Entrada inválida.");
+
+                scanner.nextLine();
+            }
+        }
     }
 
     public static void realizarSoma() {
