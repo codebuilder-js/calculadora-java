@@ -25,6 +25,8 @@ A calculadora consegue:
 - Mostrar histórico de operações
 - Validar divisão por zero
 - Validar entradas inválidas
+- Fazer autenticação de usuário
+- Limitar quantidade de operações
 
 O usuário escolhe uma opção no menu e informa os números pelo terminal.
 
@@ -43,6 +45,11 @@ javac Main.java
 java Main
 ```
 
+4. Faça login usando:
+
+Usuário: admin  
+Senha: 1234
+
 ## Objetivo do projeto
 
 Praticar:
@@ -55,6 +62,8 @@ Praticar:
 - Operações matemáticas com Math
 - Listas com ArrayList
 - Armazenamento de dados em memória
+- Autenticação simples
+- Controle de operações
 - Organização de código em Java
 
 ## Status
