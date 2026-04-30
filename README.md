@@ -2,7 +2,7 @@
 
 Projeto simples de calculadora feito em Java no terminal.
 
-Esse projeto foi criado para praticar lógica de programação, métodos e estruturas de decisão.
+O programa realiza operações matemáticas básicas e algumas operações extras, como potência, raiz quadrada e porcentagem.
 
 ## Tecnologias usadas
 
@@ -18,6 +18,9 @@ A calculadora consegue:
 - Subtrair números
 - Multiplicar números
 - Dividir números
+- Calcular potência
+- Calcular raiz quadrada
+- Calcular porcentagem
 - Validar divisão por zero
 - Validar entradas inválidas
 
@@ -47,6 +50,7 @@ Praticar:
 - Laços de repetição
 - Entrada de dados com Scanner
 - Tratamento de erros com try/catch
+- Operações matemáticas com Math
 - Organização de código em Java
 
 ## Status
