@@ -1,7 +1,10 @@
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     static Scanner scanner = new Scanner(System.in);
+    static List<String> historico = new ArrayList<>();
 
     public static void main(String[] args) {
 
@@ -20,6 +23,7 @@ public class Main {
             System.out.println("5 - Potência");
             System.out.println("6 - Raiz Quadrada");
             System.out.println("7 - Porcentagem");
+            System.out.println("8 - Histórico");
             System.out.println("0 - Sair");
 
             System.out.print("Escolha: ");
@@ -48,6 +52,9 @@ public class Main {
                 case 7:
                     realizarPorcentagem();
                     break;
+                case 8:
+                    exibirHistorico();
+                    break;
                 case 0:
                     System.out.println("Encerrando...");
                     break;
@@ -59,7 +66,6 @@ public class Main {
 
     public static double lerNumero(String mensagem) {
         while (true) {
-
             try {
                 System.out.print(mensagem);
 
@@ -78,6 +84,10 @@ public class Main {
 
         double resultado = a + b;
 
+        String operacao = a + " + " + b + " = " + resultado;
+
+        historico.add(operacao);
+
         System.out.println("Resultado: " + resultado);
     }
 
@@ -87,6 +97,10 @@ public class Main {
 
         double resultado = a - b;
 
+        String operacao = a + " - " + b + " = " + resultado;
+
+        historico.add(operacao);
+
         System.out.println("Resultado: " + resultado);
     }
 
@@ -95,6 +109,10 @@ public class Main {
         double b = lerNumero("Segundo número: ");
 
         double resultado = a * b;
+
+        String operacao = a + " * " + b + " = " + resultado;
+
+        historico.add(operacao);
 
         System.out.println("Resultado: " + resultado);
     }
@@ -112,6 +130,10 @@ public class Main {
 
         double resultado = a / b;
 
+        String operacao = a + " / " + b + " = " + resultado;
+
+        historico.add(operacao);
+
         System.out.println("Resultado: " + resultado);
     }
 
@@ -120,6 +142,10 @@ public class Main {
         double expoente = lerNumero("Expoente: ");
 
         double resultado = Math.pow(base, expoente);
+
+        String operacao = base + " ^ " + expoente + " = " + resultado;
+
+        historico.add(operacao);
 
         System.out.println("Resultado: " + resultado);
     }
@@ -135,6 +161,10 @@ public class Main {
 
         double resultado = Math.sqrt(numero);
 
+        String operacao = "√ " + numero + " = " + resultado;
+
+        historico.add(operacao);
+
         System.out.println("Resultado: " + resultado);
     }
 
@@ -144,6 +174,24 @@ public class Main {
 
         double resultado = (valor * porcentagem) / 100;
 
+        String operacao = porcentagem + "% de " + valor + " = " + resultado;
+
+        historico.add(operacao);
+
         System.out.println("Resultado: " + resultado);
+    }
+
+    public static void exibirHistorico() {
+        if(historico.isEmpty()) {
+            System.out.println("Nenhuma operação realizada.");
+
+            return;
+        }
+
+        System.out.println("\n=== HISTÓRICO ===");
+
+        for(String operacao : historico) {
+            System.out.println(operacao);
+        }
     }
 }
