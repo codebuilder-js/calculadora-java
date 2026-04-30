@@ -104,7 +104,6 @@ public class Main {
         double b = lerNumero("Segundo número: ");
 
         if (b == 0) {
-
             System.out.println("Não é possível dividir por zero.");
 
             return;
