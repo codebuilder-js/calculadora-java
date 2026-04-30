@@ -8,6 +8,7 @@ O programa realiza operações matemáticas básicas e algumas operações extra
 
 - Java
 - Scanner
+- ArrayList
 - IntelliJ IDEA / Eclipse
 
 ## O que o projeto faz
@@ -21,6 +22,7 @@ A calculadora consegue:
 - Calcular potência
 - Calcular raiz quadrada
 - Calcular porcentagem
+- Mostrar histórico de operações
 - Validar divisão por zero
 - Validar entradas inválidas
 
@@ -51,6 +53,8 @@ Praticar:
 - Entrada de dados com Scanner
 - Tratamento de erros com try/catch
 - Operações matemáticas com Math
+- Listas com ArrayList
+- Armazenamento de dados em memória
 - Organização de código em Java
 
 ## Status
