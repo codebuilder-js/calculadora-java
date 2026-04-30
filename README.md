@@ -19,6 +19,7 @@ A calculadora consegue:
 - Multiplicar números
 - Dividir números
 - Validar divisão por zero
+- Validar entradas inválidas
 
 O usuário escolhe uma opção no menu e informa os números pelo terminal.
 
@@ -45,6 +46,7 @@ Praticar:
 - Estrutura switch
 - Laços de repetição
 - Entrada de dados com Scanner
+- Tratamento de erros com try/catch
 - Organização de código em Java
 
 ## Status
